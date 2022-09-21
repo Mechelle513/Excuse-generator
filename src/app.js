@@ -2,10 +2,33 @@
 import "bootstrap";
 import "./style.css";
 
-import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
+window.onload = () => {
+  document.querySelector("#btn").addEventListener("click", () => {
+    document.querySelector("#the-Excuse").innerHTML = generateExcuse();
+  });
+};
+
+let generateExcuse = () => {
+  let subject = ["dog", "cat", "aunt"];
+  let pronoun = ["my", "the neighbor's"];
+  let action = ["pooped", "is"];
+  let possesion = ["in my bed", "on my car", "dead"];
+
+  let subjectIndex = Math.floor(Math.random() * subject.length);
+  let pronounIndex = Math.floor(Math.random() * pronoun.length);
+  let actionIndex = Math.floor(Math.random() * action.length);
+
+  let possesionIndex = Math.floor(Math.random() * possesion.length);
+
+  return (
+    pronoun[pronounIndex] +
+    " " +
+    subject[subjectIndex] +
+    " " +
+    action[actionIndex] +
+    " " +
+    possesion[possesionIndex]
+  );
 };
